@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nutritionverse_postprocessing"
+authors = [
+  {name = "Chris Czarnecki", email = "kjczarne@gmail.com"},
+]
+description = "Postprocessing facilities for the NutritionVerse dataset project"
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["nutritionverse"]
+license = {text = "MIT"}
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+]
+dependencies = [
+  "requests"
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+texture = ["pymeshlab"]
+texture-gen = ["text2tex"]
+

@@ -1,0 +1,22 @@
+<!DOCTYPE FilterScript>
+<FilterScript>
+ <filter name="Per Vertex Texture Function">
+  <Param tooltip="function to generate u texture coord. Expected Range 0-1" type="RichString" name="u" value="x" description="func u = "/>
+  <Param tooltip="function to generate v texture coord. Expected Range 0-1" type="RichString" name="v" value="y" description="func v = "/>
+  <Param tooltip="if checked, only affects selected vertices" type="RichBool" name="onselected" value="false" description="only on selection"/>
+ </filter>
+ <filter name="Convert PerVertex UV into PerWedge UV"/>
+ <filter name="Parametrization: Trivial Per-Triangle">
+  <Param tooltip="Indicates how many triangles have to be put on each line (every quad contains two triangles)&#xa;Leave 0 for automatic calculation" type="RichInt" name="sidedim" value="0" description="Quads per line"/>
+  <Param tooltip="Gives an indication on how big the texture is" type="RichInt" name="textdim" value="4096" description="Texture Dimension (px)"/>
+  <Param tooltip="Specifies how many pixels to be left between triangles in parametrization domain" type="RichInt" name="border" value="0" description="Inter-Triangle border (px)"/>
+  <Param tooltip="Choose space optimizing to map smaller faces into smaller triangles in parametrizazion domain" type="RichEnum" enum_val1="Space-optimizing" enum_val0="Basic" name="method" enum_cardinality="2" value="1" description="Method"/>
+ </filter>
+ <filter name="Transfer: Vertex Color to Texture">
+  <Param tooltip="The name of the texture to be created" type="RichString" name="textName" value="14_waffle_2_ml_mesh" description="Texture name"/>
+  <Param tooltip="The texture width" type="RichInt" name="textW" value="4096" description="Texture width (px)"/>
+  <Param tooltip="The texture height" type="RichInt" name="textH" value="4096" description="Texture height (px)"/>
+  <Param tooltip="if current mesh has a texture will be overwritten (with provided texture dimension)" type="RichBool" name="overwrite" value="false" description="Overwrite texture"/>
+  <Param tooltip="if enabled the unmapped texture space is colored using a pull push filling algorithm, if false is set to black" type="RichBool" name="pullpush" value="true" description="Fill texture"/>
+ </filter>
+</FilterScript>
