@@ -1,0 +1,7 @@
+Mixed license
+
+Components of this software are licensed under different licenses due to the usage of external code.
+
+1. If a subdirectory contains a `LICENSE` file, please refer to the `LICENSE_LIST` file to determine to which files the given license is applicable.
+2. For all files not mentioned in the `LICENSE_LIST` please refer to the `LICENSE_MAIN` text at the root of the repository. This is the license applicable to all other files.
+
