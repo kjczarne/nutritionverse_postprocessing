@@ -52,13 +52,6 @@ from lib.projection_helper import (
 )
 from lib.camera_helper import init_viewpoints
 
-# Setup
-if torch.cuda.is_available():
-    DEVICE = torch.device("cuda:0")
-    torch.cuda.set_device(DEVICE)
-else:
-    print("no gpu avaiable")
-    exit()
 
 
 """
@@ -134,7 +127,8 @@ def init_args():
     parser.add_argument("--no_update", action="store_true", help="do NOT apply update")
 
     # device parameters
-    parser.add_argument("--device", type=str, choices=["a6000", "2080"], default="a6000")
+    parser.add_argument("--device", type=str, default="a6000")
+    parser.add_argument("--device_id", type=str, default="cuda:0")
 
     # camera parameters NOTE need careful tuning!!!
     parser.add_argument("--test_camera", action="store_true")
@@ -163,6 +157,13 @@ def init_args():
 
 if __name__ == "__main__":
     args = init_args()
+    # Setup
+    if torch.cuda.is_available():
+        DEVICE = torch.device(args.device_id)
+        torch.cuda.set_device(DEVICE)
+    else:
+        print("no gpu avaiable")
+        exit()
 
     # save
     output_dir = os.path.join(
