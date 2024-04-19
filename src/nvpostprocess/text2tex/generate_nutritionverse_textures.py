@@ -2,6 +2,7 @@ import subprocess
 from pathlib import Path
 import toml
 import argparse
+import os
 
 
 def main():
@@ -37,7 +38,7 @@ def main():
 
         command = f"""python scripts/generate_texture.py \
             --input_dir {str(input_dir)} \
-            --output_dir {str(output_dir)} \
+            --output_dir {os.path.join(str(output_dir), file.stem)} \
             --obj_name {file.stem} \
             --obj_file {file.name} \
             --prompt \"{description}\" \
@@ -59,7 +60,7 @@ def main():
             --device_id \"{device_id}\" \
             --use_objaverse # assume the mesh is normalized with y-axis as up
         """
-        
+        print(command)
         if args.dry_run:
             print(command)
         else:
